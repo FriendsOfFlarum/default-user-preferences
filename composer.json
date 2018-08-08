@@ -1,0 +1,35 @@
+{
+    "name": "piotr-tokarczyk/flarum-user-default-preferences",
+    "description": "Allows you to set default user preferences in your Flarum forum (hardcoded for now)",
+    "keywords": [
+        "extension",
+        "flarum",
+        "user preferences",
+        "default"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Piotr Tokarczyk"
+        }
+    ],
+    "require": {
+        "flarum/core": "^0.1.0-beta.6"
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "User default preferences",
+            "icon": {
+                "name": "reply-all",
+                "backgroundColor": "#fed650",
+                "color": "#1395a5"
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "PT\\Preferences\\": "src/"
+        }
+    }
+}
