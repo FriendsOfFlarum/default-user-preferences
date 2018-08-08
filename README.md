@@ -1,3 +1,7 @@
+## Description
+
+User preferences: 'Someone replies to one of my posts (email)' and 'Someone mentions me in a post (email)' are turned on by default for each new user in your Flarum forum.
+
 ## Installation
 
 ```bash

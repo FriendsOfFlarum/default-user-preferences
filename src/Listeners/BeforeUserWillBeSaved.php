@@ -10,8 +10,10 @@ use Illuminate\Contracts\Events\Dispatcher;
 class BeforeUserWillBeSaved
 {
     const USER_PREFERENCES = [
-        "notify_postMentioned_email" => true,
-	    "notify_userMentioned_email" => true
+        "email" => [
+            'postMentioned' => true,
+            'userMentioned' => true
+        ],
     ];
 
     /**
@@ -43,8 +45,29 @@ class BeforeUserWillBeSaved
         /** @var User $user */
         $user = $event->user;
 
-        foreach(self::USER_PREFERENCES as $key => $value) {
+        if($user->exists) {
+            return;
+        }
+
+        foreach(self::getDefaultUserPreferences() as $key => $value) {
+
             $user->setPreference($key, $value);
         }
+    }
+
+    /**
+     * @return array
+     */
+    public static function getDefaultUserPreferences()
+    {
+        $preferences = [];
+
+        foreach (self::USER_PREFERENCES as $method => $types) {
+            foreach ($types as $type => $value) {
+                $preferences [User::getNotificationPreferenceKey($type, $method)] = $value;
+            }
+        }
+
+        return $preferences;
     }
 }
