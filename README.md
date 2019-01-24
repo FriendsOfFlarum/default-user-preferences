@@ -1,20 +1,27 @@
-## Description
+# Default User Preferences by FriendsOfFlarum
 
-User preferences: 'Someone replies to one of my posts (email)' and 'Someone mentions me in a post (email)' are turned on by default for each new user in your Flarum forum.
+![License](https://img.shields.io/badge/license-MIT-blue.svg) [![Latest Stable Version](https://img.shields.io/packagist/v/fof/default-user-preferences.svg)](https://packagist.org/packages/fof/default-user-preferences)
 
-## Installation
+A [Flarum](http://flarum.org) extension.
+Enables 'Someone replies to one of my posts (email)' and 'Someone mentions me in a post (email)' user preferences by default for each new user.
 
-```bash
-composer require piotr-tokarczyk/flarum-user-default-preferences
+### Installation
+
+Use [Bazaar](https://discuss.flarum.org/d/5151-flagrow-bazaar-the-extension-marketplace) or install manually with composer:
+
+```sh
+composer require fof/default-user-preferences
 ```
 
-## Updating
+### Updating
 
-```bash
-composer update piotr-tokarczyk/flarum-user-default-preferences
-php flarum cache:clear
+```sh
+composer update fof/default-user-preferences
 ```
 
-## Configuration
+### Links
 
-Enable the extension.
+- [Packagist](https://packagist.org/packages/fof/default-user-preferences)
+- [GitHub](https://github.com/FriendsOfFlarum/default-user-preferences)
+
+An extension by [FriendsOfFlarum](https://github.com/FriendsOfFlarum).

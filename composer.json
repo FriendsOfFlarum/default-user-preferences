@@ -1,35 +1,44 @@
 {
-    "name": "piotr-tokarczyk/flarum-user-default-preferences",
-    "description": "User preferences: 'Someone replies to one of my posts (email)' and 'Someone mentions me in a post (email)' are turned on by default for each new user in your Flarum forum.",
-    "keywords": [
-        "extension",
-        "flarum",
-        "user preferences",
-        "default"
-    ],
-    "type": "flarum-extension",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Piotr Tokarczyk"
-        }
-    ],
-    "require": {
-        "flarum/core": "^0.1.0-beta.6"
+  "name": "fof/default-user-preferences",
+  "description": "Enable emails for replies and mentions by default in user preferences",
+  "keywords": [
+    "flarum"
+  ],
+  "type": "flarum-extension",
+  "license": "MIT",
+  "require": {
+    "flarum/core": "^0.1.0-beta.8"
+  },
+  "replace": {
+    "piotr-tokarczyk/flarum-user-default-preferences": "*"
+  },
+  "authors": [
+    {
+      "name": "Piotr Tokarczyk",
+      "role": "Developer (Original)"
     },
-    "extra": {
-        "flarum-extension": {
-            "title": "User default preferences",
-            "icon": {
-                "name": "reply-all",
-                "backgroundColor": "#fed650",
-                "color": "#1395a5"
-            }
-        }
-    },
-    "autoload": {
-        "psr-4": {
-            "PT\\Preferences\\": "src/"
-        }
+    {
+      "name": "David Sevilla Martín",
+      "email": "david.s@redevs.org",
+      "role": "Developer"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "FoF\\DefaultUserPreferences\\": "src/"
+    }
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "FoF Default User Preferences",
+      "icon": {
+        "name": "fas fa-reply-all",
+        "backgroundColor": "#e74c3c",
+        "color": "#fff"
+      }
+    },
+    "flagrow": {
+      "discuss": ""
+    }
+  }
 }
