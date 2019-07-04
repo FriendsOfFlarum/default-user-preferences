@@ -25,6 +25,8 @@ return [
                 );
             }
 
+            $event->user->setPreference('followAfterReply', true);
+
             $event->user->save();
         });
     },
