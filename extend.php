@@ -11,9 +11,9 @@
 
 namespace FoF\DefaultUserPreferences;
 
+use Flarum\Extend;
 use Flarum\User\Event\Registered;
 use Flarum\User\User;
-use Flarum\Extend;
 
 return [
     (new Extend\Event())
