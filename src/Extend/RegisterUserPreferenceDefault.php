@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of fof/default-user-preferences.
+ *
+ * Copyright (c) FriendsOfFlarum.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace FoF\DefaultUserPreferences\Extend;
 
 use Flarum\Extend\ExtenderInterface;
@@ -19,7 +28,7 @@ class RegisterUserPreferenceDefault implements ExtenderInterface
 
     public function extend(Container $container, Extension $extension = null)
     {
-        $container->extend('fof-default-user-preferences', function($items) {
+        $container->extend('fof-default-user-preferences', function ($items) {
             return array_merge($items, $this->data);
         });
     }

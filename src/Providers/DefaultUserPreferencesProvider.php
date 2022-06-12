@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of fof/default-user-preferences.
+ *
+ * Copyright (c) FriendsOfFlarum.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace FoF\DefaultUserPreferences\Providers;
 
 use Flarum\Foundation\AbstractServiceProvider;
@@ -11,8 +20,8 @@ class DefaultUserPreferencesProvider extends AbstractServiceProvider
     {
         $this->container->singleton('fof-default-user-preferences', function (): array {
             return [
-                'postMentioned' => true,
-                'userMentioned' => true,
+                'postMentioned'    => true,
+                'userMentioned'    => true,
                 'followAfterReply' => true,
             ];
         });
