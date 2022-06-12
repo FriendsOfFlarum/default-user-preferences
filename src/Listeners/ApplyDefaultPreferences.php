@@ -11,12 +11,20 @@
 
 namespace FoF\DefaultUserPreferences\Listeners;
 
+use Flarum\Settings\SettingsRepositoryInterface;
 use Flarum\User\Event\Registered;
 use Flarum\User\User;
 use Illuminate\Support\Str;
 
 class ApplyDefaultPreferences
 {
+    protected $settings;
+        
+        public function __construct(SettingsRepositoryInterface $settings)
+        {
+            $this->settings = $settings;
+        }
+    
     public function handle(Registered $event)
     {
         /** @var array $defaults */
@@ -26,13 +34,18 @@ class ApplyDefaultPreferences
             if (Str::endsWith($data['key'], 'Mentioned')) {
                 $event->user->setPreference(
                     User::getNotificationPreferenceKey($data['key'], 'email'),
-                    $data['value']
+                    $this->getDefault($data['key'])
                 );
             } else {
-                $event->user->setPreference($data['key'], $data['value']);
+                $event->user->setPreference($data['key'], $this->getDefault($data['key']));
             }
         }
 
         $event->user->save();
+    }
+
+    private function getDefault(string $key): mixed
+    {
+        return $this->settings->get('fof-default-user-preferences.'.$key);
     }
 }
