@@ -19,12 +19,12 @@ use Illuminate\Support\Str;
 class ApplyDefaultPreferences
 {
     protected $settings;
-        
-        public function __construct(SettingsRepositoryInterface $settings)
-        {
-            $this->settings = $settings;
-        }
-    
+
+    public function __construct(SettingsRepositoryInterface $settings)
+    {
+        $this->settings = $settings;
+    }
+
     public function handle(Registered $event)
     {
         /** @var array $defaults */
