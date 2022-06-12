@@ -20,13 +20,14 @@ class RegisterUserPreferenceDefault implements ExtenderInterface
     protected $data = [];
 
     /**
-     * Includes this user preference option in `fof/default-user-preferences`. 
-     * 
+     * Includes this user preference option in `fof/default-user-preferences`.
+     *
      * `type` must be specified as any valid `<input>` type (except `select`), as this will be used for construct the settings options.
      *
      * @param string $key
-     * @param boolean $value
+     * @param bool   $value
      * @param string $type
+     *
      * @return self
      */
     public function default(string $key, mixed $value, string $type)

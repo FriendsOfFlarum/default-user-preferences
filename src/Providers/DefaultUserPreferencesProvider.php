@@ -31,11 +31,11 @@ class DefaultUserPreferencesProvider extends AbstractServiceProvider
             $registeredDefaults = resolve('fof-default-user-preferences');
 
             foreach ($registeredDefaults as $data) {
-                if ($defaults->has('fof-default-user-preferences.' . $data['key'])) {
-                    throw new \RuntimeException("Cannot modify immutable default setting " . $data['key']);
+                if ($defaults->has('fof-default-user-preferences.'.$data['key'])) {
+                    throw new \RuntimeException('Cannot modify immutable default setting '.$data['key']);
                 }
 
-                $defaults->put("fof-default-user-preferences." . $data['key'], $data['value']);
+                $defaults->put('fof-default-user-preferences.'.$data['key'], $data['value']);
             }
 
             return $defaults;
