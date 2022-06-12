@@ -1,0 +1,4 @@
+fof-default-user-preferences:
+  admin:
+    settings:
+      followAfterReply: Follow after reply
