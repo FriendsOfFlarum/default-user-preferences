@@ -32,7 +32,7 @@ return [
     (new Extend\ApiSerializer(ForumSerializer::class))
         ->attributes(function (ForumSerializer $serializer, $model, array $attributes): array {
             if ($serializer->getActor()->isAdmin()) {
-                $attributes['fof-default-user-preferences'] = array_keys(resolve('fof-default-user-preferences'));
+                $attributes['fof-default-user-preferences'] = resolve('fof-default-user-preferences');
             }
 
             return $attributes;

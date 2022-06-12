@@ -20,9 +20,9 @@ class DefaultUserPreferencesProvider extends AbstractServiceProvider
     {
         $this->container->singleton('fof-default-user-preferences', function (): array {
             return [
-                'postMentioned'    => true,
-                'userMentioned'    => true,
-                'followAfterReply' => true,
+                ['key' => 'postMentioned', 'value' => true, 'type' => 'bool'],
+                ['key' => 'userMentioned', 'value' => true, 'type' => 'bool'],
+                ['key' => 'followAfterReply', 'value' => true, 'type' => 'bool'],
             ];
         });
 
@@ -30,12 +30,12 @@ class DefaultUserPreferencesProvider extends AbstractServiceProvider
             /** @var array $registeredDefaults */
             $registeredDefaults = resolve('fof-default-user-preferences');
 
-            foreach ($registeredDefaults as $key => $value) {
-                if ($defaults->has("fof-default-user-preferences.$key")) {
-                    throw new \RuntimeException("Cannot modify immutable default setting $key.");
+            foreach ($registeredDefaults as $data) {
+                if ($defaults->has('fof-default-user-preferences.' . $data['key'])) {
+                    throw new \RuntimeException("Cannot modify immutable default setting " . $data['key']);
                 }
 
-                $defaults->put("fof-default-user-preferences.$key", $value);
+                $defaults->put("fof-default-user-preferences." . $data['key'], $data['value']);
             }
 
             return $defaults;

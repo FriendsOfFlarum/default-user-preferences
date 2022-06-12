@@ -24,8 +24,6 @@ Be sure to include translations in the `fof-default-user-preferences.admin.setti
 
 `fof-default-user-preferences.admin.settings.myCoolKey`
 
-**Note** at present, only `boolean` user preferences may be added.
-
 ### Installation
 
 Install manually with composer:

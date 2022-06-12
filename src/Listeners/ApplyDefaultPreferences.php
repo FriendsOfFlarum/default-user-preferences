@@ -22,14 +22,14 @@ class ApplyDefaultPreferences
         /** @var array $defaults */
         $defaults = resolve('fof-default-user-preferences');
 
-        foreach ($defaults as $key => $value) {
-            if (Str::endsWith($key, 'Mentioned')) {
+        foreach ($defaults as $data) {
+            if (Str::endsWith($data['key'], 'Mentioned')) {
                 $event->user->setPreference(
-                    User::getNotificationPreferenceKey($key, 'email'),
-                    $value
+                    User::getNotificationPreferenceKey($data['key'], 'email'),
+                    $data['value']
                 );
             } else {
-                $event->user->setPreference($key, $value);
+                $event->user->setPreference($data['key'], $data['value']);
             }
         }
 

@@ -22,14 +22,19 @@ export default class SettingsPage extends ExtensionPage {
 
     const prefix = 'fof-default-user-preferences.';
 
-    app.forum.attribute('fof-default-user-preferences').forEach((pref: string) => {
+    app.forum.attribute('fof-default-user-preferences').forEach((pref: Array<any>) => {
+      const key = pref.key;
+      const type = pref.type;
+      const placeholder = pref.value;
+
       items.add(
-        pref,
+        key,
         this.buildSettingComponent({
-          label: app.translator.trans(`fof-default-user-preferences.admin.settings.${pref}`),
-          help: app.translator.trans(`fof-default-user-preferences.admin.settings.${pref}-help`),
-          setting: prefix + pref,
-          type: 'boolean',
+          label: app.translator.trans(`fof-default-user-preferences.admin.settings.${key}`),
+          help: app.translator.trans(`fof-default-user-preferences.admin.settings.${key}-help`),
+          setting: prefix + key,
+          type,
+          placeholder,
         })
       );
     });
