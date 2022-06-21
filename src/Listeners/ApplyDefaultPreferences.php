@@ -44,7 +44,7 @@ class ApplyDefaultPreferences
         $event->user->save();
     }
 
-    private function getDefault(string $key): mixed
+    private function getDefault(string $key)
     {
         return $this->settings->get('fof-default-user-preferences.'.$key);
     }
