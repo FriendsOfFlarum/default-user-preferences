@@ -25,7 +25,7 @@ class RegisterUserPreferenceDefault implements ExtenderInterface
      * `type` must be specified as any valid `<input>` type (except `select`), as this will be used for construct the settings options.
      *
      * @param string $key
-     * @param mixed   $value
+     * @param mixed  $value
      * @param string $type
      *
      * @return self
