@@ -25,12 +25,12 @@ class RegisterUserPreferenceDefault implements ExtenderInterface
      * `type` must be specified as any valid `<input>` type (except `select`), as this will be used for construct the settings options.
      *
      * @param string $key
-     * @param bool   $value
+     * @param mixed  $value
      * @param string $type
      *
      * @return self
      */
-    public function default(string $key, mixed $value, string $type)
+    public function default(string $key, $value, string $type)
     {
         $this->data[] = compact('key', 'value', 'type');
 
