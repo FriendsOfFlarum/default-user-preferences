@@ -23,6 +23,7 @@ class DefaultUserPreferencesProvider extends AbstractServiceProvider
                 ['key' => 'postMentioned', 'value' => true, 'type' => 'bool'],
                 ['key' => 'userMentioned', 'value' => true, 'type' => 'bool'],
                 ['key' => 'followAfterReply', 'value' => true, 'type' => 'bool'],
+                ['key' => 'groupMentioned', 'value' => false, 'type' => 'bool'],
             ];
         });
 
