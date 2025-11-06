@@ -11,12 +11,12 @@
 
 namespace FoF\DefaultUserPreferences;
 
-use Flarum\Extend;
-use Flarum\User\Event\Registered;
-use FoF\DefaultUserPreferences\Providers\DefaultUserPreferencesProvider;
 use Flarum\Api\Context;
 use Flarum\Api\Resource\ForumResource;
 use Flarum\Api\Schema;
+use Flarum\Extend;
+use Flarum\User\Event\Registered;
+use FoF\DefaultUserPreferences\Providers\DefaultUserPreferencesProvider;
 
 return [
     (new Extend\Frontend('admin'))
