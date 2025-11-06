@@ -22,7 +22,7 @@ class ApplyDefaultPreferences
     {
     }
 
-    public function handle(Registered $event)
+    public function handle(Registered $event): void
     {
         /** @var array $defaults */
         $defaults = resolve('fof-default-user-preferences');
@@ -41,7 +41,7 @@ class ApplyDefaultPreferences
         $event->user->save();
     }
 
-    private function getDefault(string $key)
+    private function getDefault(string $key): mixed
     {
         return $this->settings->get('fof-default-user-preferences.'.$key);
     }

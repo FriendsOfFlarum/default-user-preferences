@@ -17,7 +17,7 @@ use Illuminate\Contracts\Container\Container;
 
 class RegisterUserPreferenceDefault implements ExtenderInterface
 {
-    protected $data = [];
+    protected array $data = [];
 
     /**
      * Includes this user preference option in `fof/default-user-preferences`.

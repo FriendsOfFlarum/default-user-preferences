@@ -11,13 +11,11 @@
 
 namespace FoF\DefaultUserPreferences;
 
-use Flarum\Api\Serializer\ForumSerializer;
 use Flarum\Extend;
 use Flarum\User\Event\Registered;
 use FoF\DefaultUserPreferences\Providers\DefaultUserPreferencesProvider;
 use Flarum\Api\Context;
-use Flarum\Api\Endpoint;
-use Flarum\Api\Resource;
+use Flarum\Api\Resource\ForumResource;
 use Flarum\Api\Schema;
 
 return [
@@ -33,13 +31,10 @@ return [
     (new Extend\ServiceProvider())
         ->register(DefaultUserPreferencesProvider::class),
 
-    // @TODO: Replace with the new implementation https://docs.flarum.org/2.x/extend/api#extending-api-resources
-    (new Extend\ApiSerializer(ForumSerializer::class))
-        ->attributes(function (ForumSerializer $serializer, $model, array $attributes): array {
-            if ($serializer->getActor()->isAdmin()) {
-                $attributes['fof-default-user-preferences'] = resolve('fof-default-user-preferences');
-            }
-
-            return $attributes;
-        }),
+    (new Extend\ApiResource(ForumResource::class))
+        ->fields(fn () => [
+            Schema\Arr::make('fof-default-user-preferences')
+                ->get(fn () => resolve('fof-default-user-preferences'))
+                ->visible(fn ($model, Context $context) => $context->getActor()->isAdmin()),
+        ]),
 ];

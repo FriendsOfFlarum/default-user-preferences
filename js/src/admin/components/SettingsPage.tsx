@@ -3,6 +3,12 @@ import ExtensionPage from 'flarum/admin/components/ExtensionPage';
 import ItemList from 'flarum/common/utils/ItemList';
 import type Mithril from 'mithril';
 
+interface UserPreferenceDefault {
+  key: string;
+  value: boolean;
+  type: string;
+}
+
 export default class SettingsPage extends ExtensionPage {
   content() {
     return (
@@ -22,7 +28,7 @@ export default class SettingsPage extends ExtensionPage {
 
     const prefix = 'fof-default-user-preferences.';
 
-    app.forum.attribute('fof-default-user-preferences').forEach((pref: Array<any>) => {
+    app.forum.attribute<UserPreferenceDefault[]>('fof-default-user-preferences').forEach((pref) => {
       const key = pref.key;
       const type = pref.type;
       const placeholder = pref.value;

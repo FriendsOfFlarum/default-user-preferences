@@ -16,7 +16,7 @@ use Illuminate\Support\Collection;
 
 class DefaultUserPreferencesProvider extends AbstractServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
         $this->container->singleton('fof-default-user-preferences', function (): array {
             return [
