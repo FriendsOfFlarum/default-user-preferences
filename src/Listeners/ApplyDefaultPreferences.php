@@ -18,11 +18,8 @@ use Illuminate\Support\Str;
 
 class ApplyDefaultPreferences
 {
-    protected $settings;
-
-    public function __construct(SettingsRepositoryInterface $settings)
+    public function __construct(protected SettingsRepositoryInterface $settings)
     {
-        $this->settings = $settings;
     }
 
     public function handle(Registered $event)

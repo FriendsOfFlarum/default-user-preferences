@@ -37,7 +37,7 @@ class RegisterUserPreferenceDefault implements ExtenderInterface
         return $this;
     }
 
-    public function extend(Container $container, Extension $extension = null)
+    public function extend(Container $container, ?Extension $extension = null): void
     {
         $container->extend('fof-default-user-preferences', function ($items) {
             return array_merge($items, $this->data);
