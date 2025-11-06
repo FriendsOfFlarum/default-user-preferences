@@ -19,10 +19,7 @@
         "forum": "https://discuss.flarum.org/d/18607"
     },
     "require": {
-        "flarum/core": "^1.6.2"
-    },
-    "replace": {
-        "piotr-tokarczyk/flarum-user-default-preferences": "*"
+        "flarum/core": "^2.0.0-beta"
     },
     "authors": [
         {
@@ -46,8 +43,8 @@
                 "color": "#fff"
             }
         },
-        "flagrow": {
-            "discuss": "https://discuss.flarum.org/d/18607"
+        "branch-alias": {
+            "2.x": "2.x-dev"
         },
         "flarum-cli": {
             "modules": {
@@ -56,7 +53,8 @@
         }
     },
     "require-dev": {
-        "flarum/phpstan": "*"
+        "flarum/phpstan": "^2.0.0-beta",
+        "flarum/testing": "^2.0.0-beta"
     },
     "scripts": {
         "analyse:phpstan": "phpstan analyse",
