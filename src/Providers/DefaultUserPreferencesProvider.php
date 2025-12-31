@@ -20,6 +20,8 @@ class DefaultUserPreferencesProvider extends AbstractServiceProvider
     {
         $this->container->singleton('fof-default-user-preferences', function (): array {
             return [
+                ['key' => 'discloseOnline', 'value' => true, 'type' => 'bool'],
+                ['key' => 'indexProfile', 'value' =>true, 'type' => 'bool'],
                 ['key' => 'postMentioned', 'value' => true, 'type' => 'bool'],
                 ['key' => 'userMentioned', 'value' => true, 'type' => 'bool'],
                 ['key' => 'followAfterReply', 'value' => true, 'type' => 'bool'],

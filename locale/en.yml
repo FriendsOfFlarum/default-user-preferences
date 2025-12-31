@@ -1,6 +1,10 @@
 fof-default-user-preferences:
   admin:
     settings:
+      discloseOnline: Disclose Online
+      discloseOnline-help: When enabled, new users will allow others to see when they are online. Admins and other users with permission will still be able to see online status regardless of this setting.
+      indexProfile: Index Profile
+      indexProfile-help: When enabled, new users will allow search engines to index their profile page, unless blocked by other site or extension settings.
       followAfterReply: Follow after reply
       followAfterReply-help: When enabled, new users will automatically follow discussions they reply to or comment on.
       postMentioned: Post mentioned email
