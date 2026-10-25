@@ -32,12 +32,14 @@ export default class SettingsPage extends ExtensionPage {
       const key = pref.key;
       const type = pref.type;
       const placeholder = pref.value;
+      // Extensions register their own preferences here and may not ship help text.
+      const helpKey = `fof-default-user-preferences.admin.settings.${key}-help`;
 
       items.add(
         key,
         this.buildSettingComponent({
           label: app.translator.trans(`fof-default-user-preferences.admin.settings.${key}`),
-          help: app.translator.trans(`fof-default-user-preferences.admin.settings.${key}-help`),
+          help: helpKey in app.translator.translations ? app.translator.trans(helpKey) : undefined,
           setting: prefix + key,
           type,
           placeholder,
